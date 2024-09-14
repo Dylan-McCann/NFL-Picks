@@ -3,6 +3,7 @@ from . forms import CreateUserForm,LoginUserForm,ChoiceForm,UpdateGamesForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.views.decorators.csrf import csrf_protect
 from urllib.request import  urlopen
 from bs4 import BeautifulSoup
 from . models import Game,Choice,Week
@@ -14,7 +15,7 @@ def index(request):
 	context = {"this_weeks_games":this_weeks_games}
 	return render(request, 'poolapp/index.html', context=context)
 
-
+@csrf_protect
 def register(request):
 	form = CreateUserForm()
 	if request.method == "POST":
@@ -25,7 +26,7 @@ def register(request):
 	context = {'registerform':form}
 	return render(request, 'poolapp/register.html', context=context)
 		
-
+@csrf_protect
 def userlogin(request):
 	form = LoginUserForm()
 	if request.method == 'POST':
@@ -47,6 +48,7 @@ def userlogout(request):
 
 
 @login_required(login_url="userlogin")
+@csrf_protect
 def dashboard(request):
 	form = ChoiceForm()
 	if request.method == 'POST':
@@ -68,6 +70,7 @@ def dashboard(request):
 
 
 @user_passes_test(lambda u: u.is_superuser)
+@csrf_protect
 def updategames(request):
 	form = UpdateGamesForm()
 	if request.method =='POST':
