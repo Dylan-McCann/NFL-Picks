@@ -1,0 +1,19 @@
+<html>
+
+<h1>
+ Update Games
+</h1>
+
+
+<form method ="POST">
+  {% csrf_token %}
+  {{updategamesform.as_p}}
+  <input type="submit" value="Update"/>
+</form>
+
+<form method="POST">
+{% csrf_token %}
+<input type="submit" value="Update Records">
+</form>
+
+</html>

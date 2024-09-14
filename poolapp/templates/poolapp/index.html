@@ -1,0 +1,42 @@
+<html>
+
+<h1>
+  Football.
+</h1>
+
+<a href="{% url 'dashboard' %}">Make Picks</a>
+
+{% if this_weeks_games %}
+<p>
+  This week's slate:
+</p>
+<ul>
+{% for game in this_weeks_games %}  
+<li>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          {{game.away_team}}
+        </td> 
+        <td>
+          {{game.ou}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {{game.home_team}}
+        </td> 
+        <td>
+          {{game.home_spread}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</li>
+{%endfor%}
+</ul>
+
+{% endif %}
+<a href="{% url 'userlogout' %}">Logout.</a>
+</html>

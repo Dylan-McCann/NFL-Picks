@@ -1,0 +1,16 @@
+<html>
+
+<h1>
+  Log in.
+</h1>
+
+<form method="POST" autocomplete="off">
+  {% csrf_token %}
+  {{loginuserform.as_p}}
+  <input type="submit" value="login"/>
+</form>
+
+
+<a href="{% url 'register' %}">Sign up</a>
+
+</html>
