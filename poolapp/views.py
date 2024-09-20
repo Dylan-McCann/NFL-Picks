@@ -38,13 +38,13 @@ def userlogin(request):
 	form = LoginUserForm()
 	if request.method == 'POST':
 		form = LoginUserForm(request, data=request.POST)
-		#if form.is_valid():
-		username = request.POST.get('username')
-		password = request.POST.get('password')
-		user = authenticate(request, username=username,password=password)
-		if user is not None:
-			login(request, user)
-			return redirect("")
+		if form.is_valid():
+			username = request.POST.get('username')
+			password = request.POST.get('password')
+			user = authenticate(request, username=username,password=password)
+			if user is not None:
+				login(request, user)
+				return redirect("")
 	context = {'loginuserform':form}
 	return render(request, 'poolapp/userlogin.html', context=context)
 
