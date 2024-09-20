@@ -25,8 +25,9 @@ SECRET_KEY = 'django-insecure--(7uejez5=t5jd)di@seyp@)19-%8p&_n=@)qb4x8*%q9)2qy+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost',
-                 'nfl-picks-uz0g.onrender.com'
+ALLOWED_HOSTS = [
+                 'https://nfl-picks-uz0g.onrender.com',
+                 'localhost'
                  ]
 
 
@@ -125,4 +126,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = 'https:/nfl-picks-uz0g.onrender.com'
+LOGOUT_REDIRECT_URL = 'login'
+
+# https://docs.djangoproject.com/en/3.2/ref/settings/#csrf-trusted-origins
+CSRF_TRUSTED_ORIGINS = ['https://nfl-picks-uz0g.onrender.com']

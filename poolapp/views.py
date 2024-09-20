@@ -8,7 +8,7 @@ from urllib.request import  urlopen
 from bs4 import BeautifulSoup
 from . models import Game,Choice,Week,Record
 
-@login_required(login_url="userlogin")
+@login_required()
 def index(request):
 	week = Week.load().curr_week
 	this_weeks_games = Game.objects.filter(week=week)
@@ -44,7 +44,7 @@ def userlogin(request):
 			user = authenticate(request, username=username,password=password)
 			if user is not None:
 				login(request, user)
-				return redirect("")
+				return redirect(request,"")
 	context = {'loginuserform':form}
 	return render(request, 'poolapp/userlogin.html', context=context)
 
