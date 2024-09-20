@@ -34,13 +34,12 @@ def register(request):
 	return render(request, 'poolapp/register.html', context=context)
 		
 
-
 def userlogout(request):
 	logout(request)
 	return redirect("")
 
 
-@login_required(login_url="userlogin")
+@login_required()
 @csrf_protect
 def dashboard(request):
 	form = ChoiceForm()
@@ -186,7 +185,6 @@ def updateRecords(request):
 				wl.overall_loss = wl.overall_loss+1
 				wl.dog_loss = wl.dog_loss+1 
 			wl.save()
-
 	return redirect('updategames')
 
 def standings(request):
