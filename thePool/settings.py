@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--(7uejez5=t5jd)di@seyp@)19-%8p&_n=@)qb4x8*%q9)2qy+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
                  'nfl-picks-uz0g.onrender.com',
