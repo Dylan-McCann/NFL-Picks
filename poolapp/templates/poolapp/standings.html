@@ -1,0 +1,25 @@
+<html>
+
+<h1>
+  Standings.
+</h1>
+
+<a href="{% url '' %}">Home</a>
+
+{% if standings %}
+<p>
+  Standings:
+</p>
+<ol>
+{% for user in standings %}  
+<li>
+  {{user.user}} ({{user.overall_wins}}-{{user.overall_loss}}-{{user.overall_push}})
+</li>
+{%endfor%}
+</ol>
+{% else %}
+<p>
+  No games yet...
+</p>
+{% endif %}
+</html>

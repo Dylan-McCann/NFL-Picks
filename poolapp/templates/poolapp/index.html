@@ -3,40 +3,42 @@
 <h1>
   Football.
 </h1>
-
 <a href="{% url 'dashboard' %}">Make Picks</a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="{% url 'standings'  %}">View Standings</a>
 
 {% if this_weeks_games %}
 <p>
   This week's slate:
 </p>
+<div>
 <ul>
-{% for game in this_weeks_games %}  
-<li>
-  <table>
-    <tbody>
-      <tr>
-        <td>
-          {{game.away_team}}
-        </td> 
-        <td>
-          {{game.ou}}
-        </td>
-      </tr>
-      <tr>
-        <td>
-          {{game.home_team}}
-        </td> 
-        <td>
-          {{game.home_spread}}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</li>
+{% for game in this_weeks_games %}
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            {{game.away_team}}
+          </td> 
+          <td>
+            {{game.ou}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            {{game.home_team}}
+          </td> 
+          <td>
+            {{game.home_spread}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
 {%endfor%}
 </ul>
-
+</div>
 {% endif %}
 <a href="{% url 'userlogout' %}">Logout.</a>
 </html>
