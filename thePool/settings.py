@@ -129,5 +129,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGOUT_REDIRECT_URL = 'login'
 
+LOGIN_REDIRECT_URL = ''
+
 # https://docs.djangoproject.com/en/3.2/ref/settings/#csrf-trusted-origins
 CSRF_TRUSTED_ORIGINS = ['https://nfl-picks-uz0g.onrender.com']
