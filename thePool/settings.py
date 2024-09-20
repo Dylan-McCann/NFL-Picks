@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
                  'https://nfl-picks-uz0g.onrender.com',
+                 'nfl-picks-uz0g.onrender.com',
                  'localhost'
                  ]
 
