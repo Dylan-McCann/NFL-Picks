@@ -29,24 +29,10 @@ def register(request):
 		form = CreateUserForm(request.POST)
 		if form.is_valid():
 			form.save()
-			return redirect("userlogin")
+			return redirect("login")
 	context = {'registerform':form}
 	return render(request, 'poolapp/register.html', context=context)
 		
-@csrf_protect
-def userlogin(request):
-	form = LoginUserForm()
-	if request.method == 'POST':
-		form = LoginUserForm(request, data=request.POST)
-		if form.is_valid():
-			username = request.POST.get('username')
-			password = request.POST.get('password')
-			user = authenticate(request, username=username,password=password)
-			if user is not None:
-				login(request, user)
-				return redirect(request,"")
-	context = {'loginuserform':form}
-	return render(request, 'poolapp/userlogin.html', context=context)
 
 
 def userlogout(request):
