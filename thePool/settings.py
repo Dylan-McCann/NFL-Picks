@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure--(7uejez5=t5jd)di@seyp@)19-%8p&_n=@)qb4x8*%q9)2qy+
 DEBUG = True
 
 ALLOWED_HOSTS = [
-                 'https://nfl-picks-uz0g.onrender.com',
                  'nfl-picks-uz0g.onrender.com',
+                 'https://nfl-picks-uz0g.onrender.com',
                  'localhost'
                  ]
 
