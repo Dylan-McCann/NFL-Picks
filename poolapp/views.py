@@ -22,7 +22,7 @@ def standings(request):
 	
 		
 
-#@csrf_protect
+@csrf_protect
 def register(request):
 	form = CreateUserForm()
 	if request.method == "POST":
@@ -33,7 +33,7 @@ def register(request):
 	context = {'registerform':form}
 	return render(request, 'poolapp/register.html', context=context)
 		
-#@csrf_protect
+@csrf_protect
 def userlogin(request):
 	form = LoginUserForm()
 	if request.method == 'POST':
@@ -55,7 +55,7 @@ def userlogout(request):
 
 
 @login_required(login_url="userlogin")
-#@csrf_protect
+@csrf_protect
 def dashboard(request):
 	form = ChoiceForm()
 	if request.method == 'POST':
@@ -73,7 +73,7 @@ def dashboard(request):
 
 
 @user_passes_test(lambda u: u.is_superuser)
-#@csrf_protect
+@csrf_protect
 def updategames(request):
 	form = UpdateGamesForm()
 	if request.method =='POST':
