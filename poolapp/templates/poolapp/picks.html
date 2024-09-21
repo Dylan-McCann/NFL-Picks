@@ -1,0 +1,33 @@
+<html></html>
+
+<h1>
+  Picks.
+</h1>
+
+<a href="{% url '' %}">Home</a>
+
+{% if picks %}
+<p>
+  Picks:
+</p>
+<ul>
+<li>
+  Over: {{ picks.over }}
+</li>
+<li>
+  Under: {{ picks.under }}
+</li>
+<li>
+  Favorite: {{ picks.fav }}
+</li>
+<li>
+  Underdog: {{ picks.dog }}
+</li>
+
+</ul>
+{% else %}
+<p>
+  No picks yet...
+</p>
+{% endif %}
+</html>

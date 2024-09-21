@@ -11,5 +11,6 @@ urlpatterns = [
     path('updaterecords', views.updateRecords, name="updaterecords"),
     path('standings', views.standings, name="standings"),
     path("accounts/", include("django.contrib.auth.urls")),
+    path('picks', views.picks, name="picks"),
 
 ]

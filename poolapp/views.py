@@ -19,7 +19,13 @@ def standings(request):
 	standings = Record.objects.order_by("overall_wins")
 	context = {"standings":standings}
 	return render(request, 'poolapp/standings.html', context=context)
-	
+
+
+def picks(request):
+	week= Week.load().curr_week
+	picks = Choice.objects.get(user=request.user, week=week)
+	context = {"picks":picks}
+	return render(request, 'poolapp/picks.html', context=context)	
 		
 
 @csrf_protect
